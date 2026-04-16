@@ -1,9 +1,9 @@
 "use client";
-
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { IoHomeOutline, IoTimeOutline, IoStatsChartOutline } from "react-icons/io5";
-
+import Image from "next/image";
+import logo from "../assets/logo.png"
 const NavBar = () => {
   const pathname = usePathname();
 
@@ -28,7 +28,7 @@ const NavBar = () => {
               <li key={link.name}>
                 <Link 
                   href={link.href}
-                  className={pathname === link.href ? "bg-[#1e3a31] text-white" : "text-slate-500"}
+                  className={pathname === link.href ? "bg-[#244D3F] text-white" : "text-slate-500"}
                 >
                   {link.icon} {link.name}
                 </Link>
@@ -39,8 +39,14 @@ const NavBar = () => {
         
         
         <Link href="/" className="flex items-center no-underline">
-          <span className="text-xl font-bold text-slate-900 tracking-tight">Keen</span>
-          <span className="text-xl font-bold text-[#1e3a31] tracking-tight">Keeper</span>
+          <Image 
+            src={logo}             
+            alt="KeenKeeper Logo" 
+            width={160}           
+            height={45} 
+            className="object-contain"
+            priority 
+          />
         </Link>
       </div>
 
@@ -54,7 +60,7 @@ const NavBar = () => {
                   href={link.href}
                   className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 font-medium ${
                     isActive 
-                      ? "bg-[#1e3a31] text-white shadow-sm" 
+                      ? "bg-[#244D3F] text-white shadow-sm" 
                       : "text-slate-500 hover:text-slate-800 hover:bg-slate-50"
                   }`}
                 >
