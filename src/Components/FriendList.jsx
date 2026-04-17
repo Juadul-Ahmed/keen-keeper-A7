@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const FriendList = ({ friends }) => {
@@ -6,7 +7,7 @@ const FriendList = ({ friends }) => {
       <h2 className="text-2xl font-bold text-slate-800 mb-8">Your Friends</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {friends.map((friend) => (
-          <div
+          <Link href={`/friend/${friend.id}`}
             key={friend.id}
             className="card bg-white shadow-sm border border-slate-100 hover:shadow-md transition-shadow"
           >
@@ -46,7 +47,7 @@ const FriendList = ({ friends }) => {
                 {friend.status}
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
