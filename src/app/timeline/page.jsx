@@ -10,7 +10,8 @@ const TimelinePage = () => {
       <h1 className="text-5xl font-bold text-[#1e3a31] mb-8">Timeline</h1>
       
       <div className="space-y-4">
-        {call.map((item) => (
+        { call.length === 0 ? <h2 className='font-bold text-4xl text-center my-5'>No call history found</h2> :
+          call.map((item) => (
           <div key={item.id} className="border-2 border-dashed border-sky-400 rounded-lg p-5 flex items-center gap-5 bg-white">
             <img src={item.icon} alt={item.type} className="w-12 h-12 object-contain" />
             <div>

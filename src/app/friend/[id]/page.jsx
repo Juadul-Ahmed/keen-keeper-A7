@@ -9,6 +9,8 @@ import { CiClock2 } from "react-icons/ci";
 import { FaArchive } from "react-icons/fa";
 import { MdOutlineDelete } from "react-icons/md";
 import { CallContext } from "@/context/TimelineContext";
+import { toast, ToastContainer } from 'react-toastify'
+
 
 const FriendDetailPage = () => {
   const { id } = useParams();
@@ -30,10 +32,16 @@ const FriendDetailPage = () => {
       id: Date.now()
     };
     setCall([newEntry, ...call]);
+    toast.success(`${type} recorded with ${friend.name}!`, {
+      position: "bottom-right",
+      autoClose: 3000,
+      theme: "colored",
+    });
   }
   console.log(call,'call')
   return (
     <div className="w-11/12 mx-auto mt-10">
+    <ToastContainer />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
         <div className="space-y-4">
