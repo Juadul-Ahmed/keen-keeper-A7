@@ -6,7 +6,7 @@ const TimelinePage = () => {
   const { call } = useContext(CallContext);
 
   return (
-    <div className="w-11/12 mx-auto mt-10">
+    <div className="w-11/12 mx-auto mt-10 mb-15">
       <h1 className="text-5xl font-bold text-[#1e3a31] mb-8">Timeline</h1>
       
       <div className="space-y-4">
