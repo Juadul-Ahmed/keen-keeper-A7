@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# KeenKeeper
 
-## Getting Started
+**KeenKeeper** is a personal relationship management tool designed to help you nurture and maintain meaningful connections with friends and family. It tracks your interactions and reminds you when it's time to reach out.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Technologies Used
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+* **Framework:** [Next.js 15](https://nextjs.org/) (App Router)
+* **Styling:** [Tailwind CSS](https://tailwindcss.com/) & [DaisyUI](https://daisyui.com/)
+* **Charts:** [Recharts](https://recharts.org/) (Dynamic Data Visualization)
+* **State Management:** React Context API
+* **Notifications:** [React Toastify](https://fkhadra.github.io/react-toastify/introduction)
+* **Icons:** React Icons
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Key Features
 
-## Learn More
+### 1. Dynamic Interaction Tracking
+Record every time you reach out to a friend. Whether it's a **Call**, **Text**, or **Video Chat**, KeenKeeper logs the event in real-time using React Context, ensuring your timeline is always up to date.
 
-To learn more about Next.js, take a look at the following resources:
+### 2. Visual Analytics Dashboard
+See your social habits at a glance. The **Stats Page** features a dynamic Pie Chart that automatically calculates and displays your interaction breakdown by type, helping you see how you prefer to stay connected.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 3. Smart Timeline Filtering
+Easily navigate your history with the **Filtered Timeline**. Users can sort through their past interactions by category (Calls, Texts, or Videos) to quickly find when they last spoke to someone.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---

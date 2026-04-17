@@ -41,7 +41,7 @@ const ErrorPage = () => {
                 href={"/" }
                 className="btn w-full bg-[#1e3a31] hover:bg-[#2d5a4c] text-white border-none normal-case"
               >
-                Back to Dashboard
+                Back to Home
               </Link>
               
               <button className="btn btn-ghost btn-sm text-slate-400 normal-case">
@@ -52,31 +52,7 @@ const ErrorPage = () => {
         </div>
       </main>
 
-      {/* Footer Mockup */}
-      <footer className="footer footer-center p-10 bg-[#1e3a31] text-white">
-        <div>
-          <h2 className="text-3xl font-bold">KeenKeeper</h2>
-          <p className="opacity-70">Your personal shelf of meaningful connections.</p>
-        </div> 
-        <div>
-          <div className="grid grid-flow-col gap-4">
-            <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#1e3a31]">
-              <span className="font-bold">O</span>
-            </div>
-            <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#1e3a31]">
-              <span className="font-bold">f</span>
-            </div>
-            <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#1e3a31]">
-              <span className="font-bold text-xs">𝕏</span>
-            </div>
-          </div>
-        </div>
-        <div className="text-[10px] opacity-50 flex gap-4 mt-4">
-          <p>© 2026 KeenKeeper. All rights reserved.</p>
-          <a className="link link-hover">Privacy Policy</a>
-          <a className="link link-hover">Terms of Service</a>
-        </div>
-      </footer>
+     
     </div>
   );
 };
