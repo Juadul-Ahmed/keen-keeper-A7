@@ -1,20 +1,37 @@
 "use client";
 import { useParams } from "next/navigation";
-import React from "react";
+import React, { useContext } from "react";
 import friendsData from "@/json/friends.json";
 import callIcon from "@/assets/call.png";
 import textIcon from "@/assets/text.png";
-import videoIcon from "@/assets/video.png";
+import videoIcon from "@/assets/video.png";;
 import { CiClock2 } from "react-icons/ci";
 import { FaArchive } from "react-icons/fa";
 import { MdOutlineDelete } from "react-icons/md";
+import { CallContext } from "@/context/TimelineContext";
 
 const FriendDetailPage = () => {
   const { id } = useParams();
   const friend = friendsData.find((f) => f.id === Number(id));
   
-  
-
+  // const [call,setCall] = useState([]);
+  const {call,setCall} = useContext(CallContext);
+  // const handleCall = (type,icon)=>{
+  //   setCall([...call,friend])
+  // }
+  const handleCall = (type, icon) => {
+    const newEntry = {
+      name: friend.name,
+      type: type, 
+      icon: icon.src,
+      timestamp: new Date().toLocaleString('en-US', { 
+        month: 'long', day: 'numeric', year: 'numeric' 
+      }),
+      id: Date.now()
+    };
+    setCall([newEntry, ...call]);
+  }
+  console.log(call,'call')
   return (
     <div className="w-11/12 mx-auto mt-10">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -52,7 +69,7 @@ const FriendDetailPage = () => {
 
 
           <div className="bg-white rounded-xl shadow-sm border border-slate-100 divide-y divide-slate-50 overflow-hidden">
-            <button className="w-full p-4 flex items-center justify-center gap-2 text-slate-600 hover:bg-slate-50 transition-colors text-sm font-semibold">
+            <button  className="w-full p-4 flex items-center justify-center gap-2 text-slate-600 hover:bg-slate-50 transition-colors text-sm font-semibold">
               <CiClock2 className="text-lg"/>
               Snooze 2 Weeks
             </button>
@@ -60,7 +77,7 @@ const FriendDetailPage = () => {
               <FaArchive className="text-lg"/>
               Archive
             </button>
-            <button className="w-full p-4 flex items-center justify-center gap-2 text-red-500 hover:bg-red-50 transition-colors text-sm font-bold">
+            <button  className="w-full p-4 flex items-center justify-center gap-2 text-red-500 hover:bg-red-50 transition-colors text-sm font-bold">
               <MdOutlineDelete className="text-lg"/>
               Delete
             </button>
@@ -119,7 +136,7 @@ const FriendDetailPage = () => {
               Quick Check-In
             </h3>
             <div className="grid grid-cols-3 gap-4">
-              <button className="btn btn-ghost border border-slate-100 h-36 flex flex-col items-center justify-center hover:bg-slate-50 transition-all group">
+              <button onClick={() => handleCall('Call', callIcon)} className="btn btn-ghost border border-slate-100 h-36 flex flex-col items-center justify-center hover:bg-slate-50 transition-all group">
                 <div className="bg-slate-50 p-4 rounded-full mb-3 group-hover:scale-110 transition-transform">
                   <img
                     src={callIcon.src}
@@ -132,7 +149,7 @@ const FriendDetailPage = () => {
                 </span>
               </button>
 
-              <button className="btn btn-ghost border border-slate-100 h-36 flex flex-col items-center justify-center hover:bg-slate-50 transition-all group">
+              <button onClick={()=>handleCall('Text', textIcon)} className="btn btn-ghost border border-slate-100 h-36 flex flex-col items-center justify-center hover:bg-slate-50 transition-all group">
                 <div className="bg-slate-50 p-4 rounded-full mb-3 group-hover:scale-110 transition-transform">
                   <img
                     src={textIcon.src}
@@ -145,7 +162,7 @@ const FriendDetailPage = () => {
                 </span>
               </button>
 
-              <button className="btn btn-ghost border border-slate-100 h-36 flex flex-col items-center justify-center hover:bg-slate-50 transition-all group">
+              <button onClick={()=>handleCall('Video', videoIcon)} className="btn btn-ghost border border-slate-100 h-36 flex flex-col items-center justify-center hover:bg-slate-50 transition-all group">
                 <div className="bg-slate-50 p-4 rounded-full mb-3 group-hover:scale-110 transition-transform">
                   <img
                     src={videoIcon.src}
